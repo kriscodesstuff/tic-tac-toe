@@ -1,3 +1,15 @@
-body{
-    background-color: blue;
+.game-grid{
+    width: 500px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+}
+
+.game-grid, .game-grid > div {
+    border: 1px solid black ;
+}
+
+.container h1:nth-child(3) {
+    color: red;
 }
