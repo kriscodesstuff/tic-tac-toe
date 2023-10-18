@@ -1,11 +1,12 @@
-function gameBoard() {
+const gameBoard = (function () {
     const spaces = document.querySelectorAll('.space');
+
     spaces.forEach((space) => {
         space.addEventListener('click', () => {
-
+            game.playRound();
         })
     })
-}
+})();
 
 function players() {
 
@@ -29,6 +30,7 @@ function players() {
         }
     }
 
+    return {activePlayer, switchPlayers};
 
 }
 
@@ -40,6 +42,8 @@ function game() {
             players.switchPlayers();
         }
     }
+
+    return { playRound };
     
 }
 
