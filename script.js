@@ -3,45 +3,46 @@ const gameBoard = (function () {
 
     spaces.forEach((space) => {
         space.addEventListener('click', () => {
-            game.playRound();
+            const playRound = game(space);
+            playRound.playRound(space);
         })
     })
 })();
 
-function players() {
+const players = () => {
 
-    const playerX = {
+    const player1 = {
         name: 'Player 1',
         symbol: 'X'
     }
-
-    const playerO = {
+    
+    const player2 = {
         name: 'Player 2',
         symbol: 'O'
     }
-    
-    let activePlayer = playerX;
 
-    const switchPlayers = (activePlayer) => {
-        if(activePlayer.name == 'Player 1'){
-            activePlayer = playerO;
-        }else if(activePlayer.name == 'Player 2'){
-            activePlayer = playerX;
-        }
+    let activePlayer = player1;
+
+    const switchPlayers = () => {
+       return activePlayer == player1 ? activePlayer = player2 : activePlayer = player1;
     }
 
-    return {activePlayer, switchPlayers};
+
+    return{switchPlayers}
 
 }
 
-function game() {
+const returnPlayers = players();
 
+
+
+function game(space) {
+    
     const playRound = (space) => {
-        if(!space.innerText){
-            space.innerText = `${activePlayer.symbol}`;
-            players.switchPlayers();
-        }
+        space.innerText = `${returnPlayers.switchPlayers().symbol}`;
     }
+
+    
 
     return { playRound };
     
