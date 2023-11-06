@@ -21,10 +21,10 @@ const players = () => {
         symbol: 'O'
     }
 
-    let activePlayer = player1;
+    let activePlayer = player2;
 
     const switchPlayers = () => {
-       return activePlayer == player1 ? activePlayer = player2 : activePlayer = player1;
+       return activePlayer == player2 ? activePlayer = player1 : activePlayer = player2;
     }
 
 
