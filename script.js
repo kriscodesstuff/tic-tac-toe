@@ -1,10 +1,14 @@
 const gameBoard = (function () {
     const spaces = document.querySelectorAll('.space');
-
+    const rowOne = document.querySelectorAll('.row-1');
+    
     spaces.forEach((space) => {
         space.addEventListener('click', () => {
             const playRound = game(space);
-            playRound.playRound(space);
+            if(space.innerText != 'X' || space.innerText != '0'){
+                playRound.playRound(space);
+            }
+            
         })
     })
 })();
@@ -40,8 +44,10 @@ function game(space) {
     
     const playRound = (space) => {
         space.innerText = `${returnPlayers.switchPlayers().symbol}`;
+       
     }
 
+    
     
 
     return { playRound };
