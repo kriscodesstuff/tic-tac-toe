@@ -1,17 +1,30 @@
 const gameBoard = (function () {
     const spaces = document.querySelectorAll('.space');
-    const rowOne = document.querySelectorAll('.row-1');
+    let rowOneArr = [];
     
     spaces.forEach((space) => {
         space.addEventListener('click', () => {
             const playRound = game(space);
-            if(space.innerText != 'X' || space.innerText != '0'){
+            if(!space.innerText){
                 playRound.playRound(space);
-            }
-            
+                checkRowOneWinner(space);
+            } 
         })
+
+        // const checkRowOneWinner = (space) => {
+        //     if(space.classList.contains('row-1')){
+        //         rowOneArr.push(space.innerText);
+        //     }
+        //     if(rowOneArr.length == 3){
+        //         console.log(rowOneArr)
+        //     }
+        // }
     })
+
+    
+   
 })();
+
 
 const players = () => {
 
@@ -43,7 +56,7 @@ const returnPlayers = players();
 function game(space) {
     
     const playRound = (space) => {
-        space.innerText = `${returnPlayers.switchPlayers().symbol}`;
+        space.innerText = `${returnPlayers.switchPlayers().symbol}`; 
        
     }
 
