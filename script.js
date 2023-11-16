@@ -1,7 +1,7 @@
 const gameBoard = (function () {
     const spaces = document.querySelectorAll('.space');
     let rowOneArr = [];
-    // let rowTwoArr = [];
+    let rowTwoArr = [];
     
     spaces.forEach((space) => {
         space.addEventListener('click', () => {
@@ -15,19 +15,16 @@ const gameBoard = (function () {
         const checkRowOneWinner = (space) => {
             if(space.classList.contains('row-1')){
                 rowOneArr.push(space.innerText);
-            // }else if(space.classList.contains('row-2')){
-            //     rowTwoArr.push(space.innerText);
-            // }
+            }else if(space.classList.contains('row-2')){
+                rowTwoArr.push(space.innerText);
+            }
         
-
-            if(rowOneArr.length == 3){
-                const equalsX = (currentValue) => currentValue === 'X';
-                const equalsO = (currentValue) => currentValue === 'O';
-                if(rowOneArr.every(equalsX)){
-                    console.log('Player 1 wins!');
-                }else if(rowOneArr.every(equalsO)){
-                    console.log('Player 2 wins!');
-                }
+            if(rowOneArr.length === 3 && !rowOneArr.includes('O')){
+                
+                console.log('Player 1 wins!');
+                
+            }else if(rowOneArr.length === 3 && !rowOneArr.includes('X')){
+                console.log('Player 2 wins!');
             }
         }
 
