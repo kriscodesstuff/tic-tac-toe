@@ -3,6 +3,8 @@ const gameBoard = (function () {
     let rowOneArr = [];
     let rowTwoArr = [];
     let rowThreeArr = [];
+
+   
     
     spaces.forEach((space) => {
         space.addEventListener('click', () => {
@@ -25,14 +27,20 @@ const gameBoard = (function () {
                 rowThreeArr.push(space.innerText);
                 break;
             }
-        
-            // if(rowOneArr.length === 3 && !rowOneArr.includes('O')){
+
+            if(rowOneArr.length === 3 && !rowOneArr.includes('O')|| 
+            rowTwoArr.length === 3 && !rowTwoArr.includes('O')|| 
+             rowThreeArr.length === 3 && !rowThreeArr.includes('O')){
                 
-            //     console.log('Player 1 wins!');
+                console.log('Player 1 wins!');
                 
-            // }else if(rowOneArr.length === 3 && !rowOneArr.includes('X')){
-            //     console.log('Player 2 wins!');
-            // }
+            }else if(rowOneArr.length === 3 && !rowOneArr.includes('X')|| 
+            rowTwoArr.length === 3 && !rowTwoArr.includes('X')|| 
+             rowThreeArr.length === 3 && !rowThreeArr.includes('X')){
+
+                console.log('Player 2 wins!');
+             }
+            
         }
 
         
