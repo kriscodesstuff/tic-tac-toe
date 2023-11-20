@@ -3,6 +3,9 @@ const gameBoard = (function () {
     let rowOneArr = [];
     let rowTwoArr = [];
     let rowThreeArr = [];
+    let columnOneArr = [];
+    let columnTwoArr = [];
+    let columnThreeArr = [];
 
    
     
@@ -28,6 +31,21 @@ const gameBoard = (function () {
                 break;
             }
 
+            switch(space.dataset.column) {
+                case '1' :
+                    console.log('hello');
+                    columnOneArr.push(space.innerText);
+                    break;
+                case '2' :
+                    console.log('hey');
+                    columnTwoArr.push(space.innerText);
+                    break;
+                case '3' :
+                    console.log('hi');
+                    columnThreeArr.push(space.innerText);
+                    break;
+            }
+
             const displayWinner = (arr) => {
                 if(arr.length === 3 && !arr.includes('O')){
                     console.log('Player 1 wins!');
@@ -39,6 +57,9 @@ const gameBoard = (function () {
            displayWinner(rowOneArr)
            displayWinner(rowTwoArr);
            displayWinner(rowThreeArr);
+           displayWinner(columnOneArr);
+           displayWinner(columnTwoArr);
+           displayWinner(columnThreeArr);
             
         }
 
