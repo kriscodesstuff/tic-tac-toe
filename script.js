@@ -28,18 +28,17 @@ const gameBoard = (function () {
                 break;
             }
 
-            if(rowOneArr.length === 3 && !rowOneArr.includes('O')|| 
-            rowTwoArr.length === 3 && !rowTwoArr.includes('O')|| 
-             rowThreeArr.length === 3 && !rowThreeArr.includes('O')){
-                
-                console.log('Player 1 wins!');
-                
-            }else if(rowOneArr.length === 3 && !rowOneArr.includes('X')|| 
-            rowTwoArr.length === 3 && !rowTwoArr.includes('X')|| 
-             rowThreeArr.length === 3 && !rowThreeArr.includes('X')){
+            const displayWinner = (arr) => {
+                if(arr.length === 3 && !arr.includes('O')){
+                    console.log('Player 1 wins!');
+                }else if(arr.length === 3 && !arr.includes('X')){
+                    console.log('Player 2 wins!');
+                }
+            }
 
-                console.log('Player 2 wins!');
-             }
+           displayWinner(rowOneArr)
+           displayWinner(rowTwoArr);
+           displayWinner(rowThreeArr);
             
         }
 
