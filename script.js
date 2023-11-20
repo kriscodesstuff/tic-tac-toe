@@ -6,6 +6,8 @@ const gameBoard = (function () {
     let columnOneArr = [];
     let columnTwoArr = [];
     let columnThreeArr = [];
+    let diagonalLeftArr = [];
+    let diagonalRightArr = [];
 
    
     
@@ -19,6 +21,7 @@ const gameBoard = (function () {
         })
 
         const checkWinner = (space) => {
+
             switch(space.dataset.row){
                case '1' :
                 rowOneArr.push(space.innerText);
@@ -33,16 +36,26 @@ const gameBoard = (function () {
 
             switch(space.dataset.column) {
                 case '1' :
-                    console.log('hello');
                     columnOneArr.push(space.innerText);
                     break;
                 case '2' :
-                    console.log('hey');
                     columnTwoArr.push(space.innerText);
                     break;
                 case '3' :
-                    console.log('hi');
                     columnThreeArr.push(space.innerText);
+                    break;
+            }
+
+            switch(space.dataset.diagonal) {
+                case 'left' :
+                    diagonalLeftArr.push(space.innerText);
+                    break;
+                case 'right' :
+                    diagonalRightArr.push(space.innerText);
+                    break;
+                case 'left-right' :
+                    diagonalLeftArr.push(space.innerText);
+                    diagonalRightArr.push(space.innerText);
                     break;
             }
 
@@ -60,6 +73,8 @@ const gameBoard = (function () {
            displayWinner(columnOneArr);
            displayWinner(columnTwoArr);
            displayWinner(columnThreeArr);
+           displayWinner(diagonalLeftArr);
+           displayWinner(diagonalRightArr);
             
         }
 
