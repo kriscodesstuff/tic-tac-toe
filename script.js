@@ -11,11 +11,11 @@ const gameBoard = (function () {
             const playRound = game(space);
             if(!space.innerText){
                 playRound.playRound(space);
-                checkRowWinner(space);
+                checkWinner(space);
             } 
         })
 
-        const checkRowWinner = (space) => {
+        const checkWinner = (space) => {
             switch(space.dataset.row){
                case '1' :
                 rowOneArr.push(space.innerText);
