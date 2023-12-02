@@ -12,7 +12,7 @@ const gameBoard = (function () {
     }
     
     const resetBtn = document.querySelector('#reset-btn');
-   
+    const playGame = game(undefined,allArrays,spaces);
    
     
     spaces.forEach((space) => {
@@ -28,7 +28,7 @@ const gameBoard = (function () {
     
     })
 
-    resetBtn.addEventListener('click', () => playGame.resetGame(spaces));
+    resetBtn.addEventListener('click', () => playGame.resetGame(spaces,allArrays));
 
     
    
@@ -62,10 +62,8 @@ const returnPlayers = players();
 
 
 
-function game(space,allArrays) {
+function game(space,allArrays,spaces) {
 
-    
-    
     const playRound = (space) => {
         space.innerText = `${returnPlayers.switchPlayers().symbol}`; 
        
@@ -129,7 +127,11 @@ function game(space,allArrays) {
         
     }
 
-    const resetGame = (spaces) => {
+    const resetGame = (spaces,allArrays) => {
+
+        for(let arr in allArrays) {
+            allArrays[arr] = [];
+        }
     
         spaces.forEach((space) => {
             space.innerText = '';
