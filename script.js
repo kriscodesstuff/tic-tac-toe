@@ -1,85 +1,34 @@
 const gameBoard = (function () {
     const spaces = document.querySelectorAll('.space');
-    let rowOneArr = [];
-    let rowTwoArr = [];
-    let rowThreeArr = [];
-    let columnOneArr = [];
-    let columnTwoArr = [];
-    let columnThreeArr = [];
-    let diagonalLeftArr = [];
-    let diagonalRightArr = [];
-
+    const allArrays = {
+        rowOneArr : [],
+        rowTwoArr : [],
+        rowThreeArr : [],
+        columnOneArr : [],
+        columnTwoArr : [],
+        columnThreeArr : [],
+        diagonalLeftArr : [],
+        diagonalRightArr : [],
+    }
+    
+    const resetBtn = document.querySelector('#reset-btn');
+   
    
     
     spaces.forEach((space) => {
         space.addEventListener('click', () => {
-            const playRound = game(space);
+            const playGame = game(space,allArrays);
             if(!space.innerText){
-                playRound.playRound(space);
-                checkWinner(space);
+                playGame.playRound(space);
+                playGame.checkWinner(space, allArrays);
             } 
         })
 
-        const checkWinner = (space) => {
-
-            switch(space.dataset.row){
-               case '1' :
-                rowOneArr.push(space.innerText);
-                break;
-               case '2' :
-                rowTwoArr.push(space.innerText);
-                break;
-               case '3' :
-                rowThreeArr.push(space.innerText);
-                break;
-            }
-
-            switch(space.dataset.column) {
-                case '1' :
-                    columnOneArr.push(space.innerText);
-                    break;
-                case '2' :
-                    columnTwoArr.push(space.innerText);
-                    break;
-                case '3' :
-                    columnThreeArr.push(space.innerText);
-                    break;
-            }
-
-            switch(space.dataset.diagonal) {
-                case 'left' :
-                    diagonalLeftArr.push(space.innerText);
-                    break;
-                case 'right' :
-                    diagonalRightArr.push(space.innerText);
-                    break;
-                case 'left-right' :
-                    diagonalLeftArr.push(space.innerText);
-                    diagonalRightArr.push(space.innerText);
-                    break;
-            }
-
-            const displayWinner = (arr) => {
-                if(arr.length === 3 && !arr.includes('O')){
-                    console.log('Player 1 wins!');
-                }else if(arr.length === 3 && !arr.includes('X')){
-                    console.log('Player 2 wins!');
-                }
-            }
-
-           displayWinner(rowOneArr)
-           displayWinner(rowTwoArr);
-           displayWinner(rowThreeArr);
-           displayWinner(columnOneArr);
-           displayWinner(columnTwoArr);
-           displayWinner(columnThreeArr);
-           displayWinner(diagonalLeftArr);
-           displayWinner(diagonalRightArr);
-            
-        }
-
         
+    
     })
+
+    resetBtn.addEventListener('click', () => playGame.resetGame(spaces));
 
     
    
@@ -113,17 +62,86 @@ const returnPlayers = players();
 
 
 
-function game(space) {
+function game(space,allArrays) {
+
+    
     
     const playRound = (space) => {
         space.innerText = `${returnPlayers.switchPlayers().symbol}`; 
        
     }
+    
+    const checkWinner = (space, allArrays) => {
+
+        switch(space.dataset.row){
+           case '1' :
+            allArrays.rowOneArr.push(space.innerText);
+            break;
+           case '2' :
+            allArrays.rowTwoArr.push(space.innerText);
+            break;
+           case '3' :
+            allArrays.rowThreeArr.push(space.innerText);
+            break;
+        }
+
+        switch(space.dataset.column) {
+            case '1' :
+                allArrays.columnOneArr.push(space.innerText);
+                break;
+            case '2' :
+                allArrays.columnTwoArr.push(space.innerText);
+                break;
+            case '3' :
+                allArrays.columnThreeArr.push(space.innerText);
+                break;
+        }
+
+        switch(space.dataset.diagonal) {
+            case 'left' :
+                allArrays.diagonalLeftArr.push(space.innerText);
+                break;
+            case 'right' :
+                allArrays.diagonalRightArr.push(space.innerText);
+                break;
+            case 'left-right' :
+                allArrays.diagonalLeftArr.push(space.innerText);
+                allArrays.diagonalRightArr.push(space.innerText);
+                break;
+        }
+
+        const displayWinner = (arr) => {
+            if(arr.length === 3 && !arr.includes('O')){
+                console.log('Player 1 wins!');
+            }else if(arr.length === 3 && !arr.includes('X')){
+                console.log('Player 2 wins!');
+            }
+        }
+
+       displayWinner(allArrays.rowOneArr)
+       displayWinner(allArrays.rowTwoArr);
+       displayWinner(allArrays.rowThreeArr);
+       displayWinner(allArrays.columnOneArr);
+       displayWinner(allArrays.columnTwoArr);
+       displayWinner(allArrays.columnThreeArr);
+       displayWinner(allArrays.diagonalLeftArr);
+       displayWinner(allArrays.diagonalRightArr);
+        
+    }
+
+    const resetGame = (spaces) => {
+    
+        spaces.forEach((space) => {
+            space.innerText = '';
+        })
+    }
+
+    
 
     
     
 
-    return { playRound };
+    return { playRound, resetGame, checkWinner };
     
 }
 
