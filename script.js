@@ -23,9 +23,6 @@ const gameBoard = (function () {
                 playGame.checkWinner(space, allArrays);
             } 
         })
-
-        
-    
     })
 
     resetBtn.addEventListener('click', () => playGame.resetGame(spaces,allArrays));
