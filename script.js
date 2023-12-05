@@ -25,24 +25,44 @@ const gameBoard = (function () {
         })
     })
 
-    resetBtn.addEventListener('click', () => playGame.resetGame(spaces,allArrays));
-
-    
+    if(resetBtn){
+        resetBtn.addEventListener('click', () => playGame.resetGame(spaces,allArrays));
+    }
+   
    
 })();
 
 
+
+
 const players = () => {
 
+    const form = document.querySelector('form');
+    const playerOneLabel = document.querySelector('#player-1-label');
+    const playerTwoLabel = document.querySelector('#player-2-label');
+    const playerOneSelection = document.querySelector('#player-1');
+    const playerTwoSelection = document.querySelector('#player-2');
+
+
     const player1 = {
-        name: 'Player 1',
+        name:'Player One',
         symbol: 'X'
     }
     
     const player2 = {
-        name: 'Player 2',
+        name: 'Player Two',
         symbol: 'O'
     }
+
+    // if(form){
+    //     form.onSubmit = () => {
+    //         localStorage.setItem('playerOneSelection', playerOneSelection.value)
+    //     }
+    // }
+
+    // console.log(player1);
+
+    
 
     let activePlayer = player2;
 
