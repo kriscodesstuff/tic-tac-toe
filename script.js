@@ -37,28 +37,31 @@ const gameBoard = (function () {
 
 const players = () => {
 
-    const form = document.querySelector('form');
     const startBtn = document.querySelector('#start-btn');
     const playerSelectionModal = document.querySelector('#player-selection-modal');
+    const playerOneName = document.querySelector('#player-1');
+    const playerTwoName = document.querySelector('#player-2');
 
-    startBtn.addEventListener('click',() => {
+    startBtn.addEventListener('click',(e) => {
         playerSelectionModal.classList.add('hidden');
+        player1.name = playerOneName.value;
+        player2.name = playerTwoName.value;
+        document.querySelector('#player-1-header').innerText = `${player1.name}`;
+        document.querySelector('#player-2-header').innerText = `${player2.name}`;
+
     });
 
+
     const player1 = {
-        name: 'Player One',
+        name: playerOneName.value ? playerOneName.value : 'Player One',
         symbol: 'X'
     }
     
     const player2 = {
-        name: 'Player Two',
+        name: playerTwoName.value ? playerTwoName.value : 'Player Two',
         symbol: 'O'
     }
 
-    
-
- 
-    
 
     let activePlayer = player2;
 
