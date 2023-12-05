@@ -38,14 +38,15 @@ const gameBoard = (function () {
 const players = () => {
 
     const form = document.querySelector('form');
-    const playerOneLabel = document.querySelector('#player-1-label');
-    const playerTwoLabel = document.querySelector('#player-2-label');
-    const playerOneSelection = document.querySelector('#player-1');
-    const playerTwoSelection = document.querySelector('#player-2');
+    const startBtn = document.querySelector('#start-btn');
+    const playerSelectionModal = document.querySelector('#player-selection-modal');
 
+    startBtn.addEventListener('click',() => {
+        playerSelectionModal.classList.add('hidden');
+    });
 
     const player1 = {
-        name:'Player One',
+        name: 'Player One',
         symbol: 'X'
     }
     
@@ -54,14 +55,9 @@ const players = () => {
         symbol: 'O'
     }
 
-    // if(form){
-    //     form.onSubmit = () => {
-    //         localStorage.setItem('playerOneSelection', playerOneSelection.value)
-    //     }
-    // }
+    
 
-    // console.log(player1);
-
+ 
     
 
     let activePlayer = player2;
