@@ -44,8 +44,8 @@ const players = () => {
 
     startBtn.addEventListener('click',(e) => {
         playerSelectionModal.classList.add('hidden');
-        player1.name = playerOneName.value;
-        player2.name = playerTwoName.value;
+        player1.name = playerOneName.value ? playerOneName.value : 'Player One'
+        player2.name = playerTwoName.value ? playerTwoName.value : 'Player Two';
         document.querySelector('#player-1-header').innerText = `${player1.name}`;
         document.querySelector('#player-2-header').innerText = `${player2.name}`;
 
@@ -53,13 +53,11 @@ const players = () => {
 
 
     const player1 = {
-        name: playerOneName.value ? playerOneName.value : 'Player One',
-        symbol: 'X'
+        symbol: 'X',
     }
     
     const player2 = {
-        name: playerTwoName.value ? playerTwoName.value : 'Player Two',
-        symbol: 'O'
+        symbol: 'O',
     }
 
 
