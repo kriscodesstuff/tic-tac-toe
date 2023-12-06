@@ -13,7 +13,7 @@ const gameBoard = (function () {
     
     const resetBtn = document.querySelector('#reset-btn');
     const playGame = game(undefined,allArrays,spaces);
-   
+    const playAgainBtn = document.querySelector('#play-again');
     
     spaces.forEach((space) => {
         space.addEventListener('click', () => {
@@ -25,10 +25,10 @@ const gameBoard = (function () {
         })
     })
 
-    if(resetBtn){
-        resetBtn.addEventListener('click', () => playGame.resetGame(spaces,allArrays));
-    }
-   
+
+    resetBtn.addEventListener('click', () => playGame.resetGame(spaces,allArrays));
+
+    playAgainBtn.addEventListener('click', () => playGame.resetGame(spaces,allArrays));
    
 })();
 
@@ -85,6 +85,9 @@ const returnPlayers = players();
 
 function game(space,allArrays,spaces) {
 
+    const winnerModal =  document.querySelector('.winner-modal');
+    const winnerModalText = document.querySelector('.winner-modal p');
+
     const playRound = (space) => {
         space.innerText = `${returnPlayers.switchPlayers().symbol}`; 
        
@@ -131,11 +134,11 @@ function game(space,allArrays,spaces) {
 
         const displayWinner = (arr) => {
             if(arr.length === 3 && !arr.includes('O')){
-                document.querySelector('.winner-modal').classList.remove('hidden');
-                document.querySelector('.winner-modal p').innerText = `${returnPlayers.returnPlayerOneName()}`;
+                winnerModal.classList.remove('hidden');
+                winnerModalText.innerText = `${returnPlayers.returnPlayerOneName()}`;
             }else if(arr.length === 3 && !arr.includes('X')){
-                document.querySelector('.winner-modal').classList.remove('hidden');
-                document.querySelector('.winner-modal p').innerText = `${returnPlayers.returnPlayerOneName()}`;
+                winnerModal.classList.remove('hidden');
+                winnerModalText.innerText = `${returnPlayers.returnPlayerTwoName()}`;
             }
         }
 
@@ -159,6 +162,10 @@ function game(space,allArrays,spaces) {
         spaces.forEach((space) => {
             space.innerText = '';
         })
+
+        winnerModal.classList.add('hidden');
+
+        
     }
 
     
@@ -166,7 +173,7 @@ function game(space,allArrays,spaces) {
     
     
 
-    return { playRound, resetGame, checkWinner };
+    return { playRound, resetGame, checkWinner, winnerModal };
     
 }
 
