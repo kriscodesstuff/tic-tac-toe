@@ -134,7 +134,8 @@ function game(space,allArrays,spaces) {
                 document.querySelector('.winner-modal').classList.remove('hidden');
                 document.querySelector('.winner-modal p').innerText = `${returnPlayers.returnPlayerOneName()}`;
             }else if(arr.length === 3 && !arr.includes('X')){
-                console.log('Player 2 wins!');
+                document.querySelector('.winner-modal').classList.remove('hidden');
+                document.querySelector('.winner-modal p').innerText = `${returnPlayers.returnPlayerOneName()}`;
             }
         }
 
