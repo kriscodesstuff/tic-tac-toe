@@ -124,7 +124,8 @@ function game(space,allArrays,spaces) {
 
         const displayWinner = (arr) => {
             if(arr.length === 3 && !arr.includes('O')){
-                console.log('Player 1 wins!');
+                document.querySelector('.winner-modal').classList.remove('hidden');
+                document.querySelector('.winner-modal p').innerText = `p wins`;
             }else if(arr.length === 3 && !arr.includes('X')){
                 console.log('Player 2 wins!');
             }
