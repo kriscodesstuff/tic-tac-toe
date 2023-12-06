@@ -9,6 +9,22 @@ body{
     width: 100vw;
     height: 100vh;
 }
+.winner-modal{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: hsla(0, 0%, 0%,.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.winner-modal p{
+    background-color: pink;
+    width: 30%;
+    padding: 40px 10px;
+    text-align: center;
+}
 
 .hidden{
     display: none;
