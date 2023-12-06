@@ -135,10 +135,10 @@ function game(space,allArrays,spaces) {
         const displayWinner = (arr) => {
             if(arr.length === 3 && !arr.includes('O')){
                 winnerModal.classList.remove('hidden');
-                winnerModalText.innerText = `${returnPlayers.returnPlayerOneName()}`;
+                winnerModalText.innerText = `${returnPlayers.returnPlayerOneName()} wins!`;
             }else if(arr.length === 3 && !arr.includes('X')){
                 winnerModal.classList.remove('hidden');
-                winnerModalText.innerText = `${returnPlayers.returnPlayerTwoName()}`;
+                winnerModalText.innerText = `${returnPlayers.returnPlayerTwoName()} wins!`;
             }
         }
 
