@@ -60,6 +60,13 @@ const players = () => {
         symbol: 'O',
     }
 
+    const returnPlayerOneName = () => {
+        return player1.name;
+    }
+    
+    const returnPlayerTwoName = () => {
+        return player2.name;
+    }
 
     let activePlayer = player2;
 
@@ -68,7 +75,7 @@ const players = () => {
     }
 
 
-    return{switchPlayers}
+    return{switchPlayers,returnPlayerOneName, returnPlayerTwoName }
 
 }
 
@@ -125,7 +132,7 @@ function game(space,allArrays,spaces) {
         const displayWinner = (arr) => {
             if(arr.length === 3 && !arr.includes('O')){
                 document.querySelector('.winner-modal').classList.remove('hidden');
-                document.querySelector('.winner-modal p').innerText = `p wins`;
+                document.querySelector('.winner-modal p').innerText = `${returnPlayers.returnPlayerOneName()}`;
             }else if(arr.length === 3 && !arr.includes('X')){
                 console.log('Player 2 wins!');
             }
