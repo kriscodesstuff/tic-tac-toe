@@ -10,6 +10,8 @@ const gameBoard = (function () {
         diagonalLeftArr : [],
         diagonalRightArr : [],
     }
+
+   
     
     const resetBtn = document.querySelector('#reset-btn');
     const playGame = game(undefined,allArrays,spaces);
@@ -24,7 +26,7 @@ const gameBoard = (function () {
             } 
         })
     })
-
+    
 
     resetBtn.addEventListener('click', () => playGame.resetGame(spaces,allArrays));
 
@@ -85,6 +87,8 @@ const returnPlayers = players();
 
 function game(space,allArrays,spaces) {
 
+   console.log(spaces)
+
     const winnerModal =  document.querySelector('.winner-modal');
     const winnerModalText = document.querySelector('.winner-modal p');
 
@@ -132,7 +136,19 @@ function game(space,allArrays,spaces) {
                 break;
         }
 
+  
+
         const displayWinner = (arr) => {
+
+            const spaces = document.querySelectorAll('.space');
+            spacesArr = Array.from(spaces);
+            const displayTie = spacesArr.every(space => space.innerText);
+
+            if(displayTie){
+                winnerModal.classList.remove('hidden');
+                winnerModalText.innerText = 'Tie!'
+            }
+        
             if(arr.length === 3 && !arr.includes('O')){
                 winnerModal.classList.remove('hidden');
                 winnerModalText.innerText = `${returnPlayers.returnPlayerOneName()} wins!`;
@@ -142,7 +158,7 @@ function game(space,allArrays,spaces) {
             }
         }
 
-       displayWinner(allArrays.rowOneArr)
+       displayWinner(allArrays.rowOneArr);
        displayWinner(allArrays.rowTwoArr);
        displayWinner(allArrays.rowThreeArr);
        displayWinner(allArrays.columnOneArr);
