@@ -85,7 +85,7 @@ const returnPlayers = players();
 
 
 
-function game(space,allArrays) {
+function game() {
 
     const winnerModal =  document.querySelector('.winner-modal');
     const winnerModalText = document.querySelector('.winner-modal p');
