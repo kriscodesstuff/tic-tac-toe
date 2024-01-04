@@ -85,9 +85,7 @@ const returnPlayers = players();
 
 
 
-function game(space,allArrays,spaces) {
-
-   console.log(spaces)
+function game(space,allArrays) {
 
     const winnerModal =  document.querySelector('.winner-modal');
     const winnerModalText = document.querySelector('.winner-modal p');
@@ -138,7 +136,7 @@ function game(space,allArrays,spaces) {
 
   
 
-        const displayWinner = (arr) => {
+        const displayWinner = (arr, s) => {
 
             const spaces = document.querySelectorAll('.space');
             spacesArr = Array.from(spaces);
@@ -146,7 +144,7 @@ function game(space,allArrays,spaces) {
 
             if(displayTie){
                 winnerModal.classList.remove('hidden');
-                winnerModalText.innerText = 'Tie!'
+                winnerModalText.innerText = 'Tie';
             }
         
             if(arr.length === 3 && !arr.includes('O')){
