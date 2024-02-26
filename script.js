@@ -72,12 +72,13 @@ const players = () => {
 
     let activePlayer = player2;
 
+
     const switchPlayers = () => {
        return activePlayer == player2 ? activePlayer = player1 : activePlayer = player2;
     }
 
 
-    return{switchPlayers,returnPlayerOneName, returnPlayerTwoName }
+    return{switchPlayers,returnPlayerOneName,returnPlayerTwoName }
 
 }
 
@@ -92,7 +93,7 @@ function game() {
 
     const playRound = (space) => {
         space.innerText = `${returnPlayers.switchPlayers().symbol}`; 
-       
+        space.style.color = `${space.innerText === 'O' ? 'red' : 'black'}`;
     }
     
     const checkWinner = (space, allArrays) => {
