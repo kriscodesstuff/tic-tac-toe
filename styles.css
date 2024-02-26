@@ -65,7 +65,7 @@ form button:hover{
     text-align: center;
 }
 
-.hidden{
+.hidden#player-selection-modal,.hidden.winner-modal{
     display: none;
 }
 
