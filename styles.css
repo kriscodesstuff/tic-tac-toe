@@ -118,6 +118,9 @@ form button:hover{
     color: #35A2E1;
 }
 
+#player-1-header,#player-2-header{
+    text-align: center;
+}
 
 .container{
     display: flex;
@@ -155,4 +158,16 @@ form button:hover{
         font-size: 1.2rem;
         width: 20%;
     }
+}
+
+@media (max-width:425px){
+    .game-grid{
+        width: 200px;
+        height: 200px;
+    }
+
+    #player-1-header,#player-2-header{
+        font-size: 1.8rem;   
+    }
+
 }
