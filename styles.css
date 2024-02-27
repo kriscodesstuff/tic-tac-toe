@@ -77,7 +77,7 @@ form button:hover{
 .winner-modal p{
     background-color: #35A2E1;
     color: white;
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-transform: uppercase;
     font-weight: bold;
     width: 30%;
@@ -86,7 +86,7 @@ form button:hover{
 }
 
 .winner-modal button{
-    padding: 40px;
+    padding: 20px;
     font-size:2rem;
     font-weight: bold;
     background-color: #FF6C6C;
@@ -158,6 +158,14 @@ form button:hover{
         font-size: 1.2rem;
         width: 20%;
     }
+
+    .winner-modal p{
+        font-size: 2rem;
+    }
+
+    .winner-modal button{
+        font-size: 1.2rem;
+    }
 }
 
 @media (max-width:425px){
@@ -168,6 +176,14 @@ form button:hover{
 
     #player-1-header,#player-2-header{
         font-size: 1.8rem;   
+    }
+
+    .winner-modal p{
+        font-size: 1.2rem;
+    }
+
+    .winner-modal button{
+        font-size: 1rem;
     }
 
 }
