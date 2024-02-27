@@ -53,17 +53,35 @@ form button:hover{
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: hsla(0, 0%, 0%,.6);
+    background-color: hsla(0, 0%, 0%,.8);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .winner-modal p{
-    background-color: pink;
+    background-color: goldenrod;
+    color: white;
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: bold;
     width: 30%;
-    padding: 40px 10px;
+    padding: 60px;
     text-align: center;
+}
+
+.winner-modal button{
+    padding: 40px;
+    font-size:2rem;
+    font-weight: bold;
+    background-color: rgb(217, 216, 216);
+    color: black;
+}
+
+.winner-modal button:hover{
+    cursor: pointer;
+    background-color: white;
 }
 
 .hidden#player-selection-modal,.hidden.winner-modal{
