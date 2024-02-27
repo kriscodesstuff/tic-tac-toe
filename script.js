@@ -93,7 +93,7 @@ function game() {
 
     const playRound = (space) => {
         space.innerText = `${returnPlayers.switchPlayers().symbol}`; 
-        space.style.color = `${space.innerText === 'O' ? 'red' : 'black'}`;
+        space.style.color = `${space.innerText === 'O' ? '#35A2E1' : 'black'}`;
     }
     
     const checkWinner = (space, allArrays) => {

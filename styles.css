@@ -5,6 +5,7 @@ body{
     padding: 0;
     margin: 0;
     height: 100vh;
+    background-color: #C4E9C1;
 }
 
 h1{
@@ -13,7 +14,7 @@ h1{
 
 #player-selection-modal{
     position: fixed;
-    background-color: gray;
+    background-color: #C4E9C1;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -21,6 +22,13 @@ h1{
     align-items: center;
     justify-content: space-evenly;
 }
+
+#player-selection-modal h1{
+    color: #35A2E1;
+    padding: 20px;
+    font-size: 3rem;
+}
+
 
 form{
     display: flex;
@@ -43,11 +51,16 @@ form button{
     padding: 20px;
     font-size: 1.5rem;
     font-weight: bold;
+    background-color: #FF6C6C;
+    border: none;
+    box-shadow: 2px 2px 2px hsla(0, 0%, 0%, 0.8);
 }
 
 form button:hover{
     cursor: pointer;
+    box-shadow: 4px 4px 4px hsla(0, 0%, 0%, 0.5);
 }
+
 
 .winner-modal{
     position: fixed;
@@ -61,7 +74,7 @@ form button:hover{
 }
 
 .winner-modal p{
-    background-color: goldenrod;
+    background-color: #35A2E1;
     color: white;
     font-size: 3rem;
     text-transform: uppercase;
@@ -75,13 +88,13 @@ form button:hover{
     padding: 40px;
     font-size:2rem;
     font-weight: bold;
-    background-color: rgb(217, 216, 216);
+    background-color: #FF6C6C;
     color: black;
 }
 
 .winner-modal button:hover{
     cursor: pointer;
-    background-color: white;
+    background-color: #d71212;
 }
 
 .hidden#player-selection-modal,.hidden.winner-modal{
@@ -101,7 +114,7 @@ form button:hover{
 }
 
 #player-2-header {
-    color: red;
+    color: #35A2E1;
 }
 
 
@@ -116,10 +129,14 @@ form button:hover{
 .container button{
     padding: 10px;
     font-weight: bold;
+    background-color: #FF6C6C;
+    border: none;
+    box-shadow: 2px 2px 2px hsla(0, 0%, 0%, 0.8);
 }
 
 .container button:hover{
     cursor: pointer;
+    box-shadow: 3px 3px 3px hsla(0, 0%, 0%, 0.5);
 }
 
 .space {
@@ -128,3 +145,4 @@ form button:hover{
     justify-content: center;
     font-size: 1.8rem;
 }
+
