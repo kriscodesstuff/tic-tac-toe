@@ -5,6 +5,7 @@ body{
     padding: 0;
     margin: 0;
     height: 100vh;
+    width: 100vw;
     background-color: #C4E9C1;
 }
 
@@ -15,8 +16,8 @@ h1{
 #player-selection-modal{
     position: fixed;
     background-color: #C4E9C1;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -146,3 +147,12 @@ form button:hover{
     font-size: 1.8rem;
 }
 
+@media (max-width:768px){
+    form input{
+        width: 40%;
+    }
+    form button{
+        font-size: 1.2rem;
+        width: 20%;
+    }
+}
